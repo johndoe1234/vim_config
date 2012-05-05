@@ -18,6 +18,9 @@ if has("autocmd")
   autocmd! bufwritepost .vimrc source $MYVIMRC
 endif
 
+"move undofiles to some master trash dir
+set undodir=~/.vimundo
+
 filetype plugin indent on
 
 
