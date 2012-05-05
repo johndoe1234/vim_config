@@ -43,3 +43,12 @@
 [submodule "bundle/tagbar"]
 	path = bundle/tagbar
 	url = https://github.com/tmhedberg/tagbar.git
+[submodule "bundle/molokai"]
+	path = bundle/molokai
+	url = https://github.com/tomasr/molokai.git
+[submodule "bundle/easymotion"]
+	path = bundle/easymotion
+	url = https://github.com/tmhedberg/vim-easymotion.git
+[submodule "bundle/lusty"]
+	path = bundle/lusty
+	url = https://github.com/sjbach/lusty.git
