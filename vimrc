@@ -117,6 +117,13 @@ nnoremap <silent> <leader>ev :e $MYVIMRC<CR>
 nnoremap <silent> <leader>sv :so $MYVIMRC<CR>
 
 
+nnoremap <silent> <leader>nt :NERDTreeToggle<CR>
+
+"number of lines visible before scrolling
+set scrolloff=8
+set sidescrolloff=8
+
+set history=500
 
 
 
