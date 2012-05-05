@@ -135,9 +135,24 @@ set history=500
 "fugitive mappings
 nnoremap <silent> <leader>gs :Gstatus<CR> "getting status
 
+"FSwitch definitions and mappings
+augroup mycppfiles
+    au!
+    "creating .cpp files if it does not exist,
+    "and looking for .cc and .c fle if .cpp does not exist
+    au BufEnter *.h let b:fswitchdst  = 'cpp,cc,C'
+augroup END
 
-
-
+"Switch to the file and load it into the current window 
+nmap <silent> <Leader>of :FSHere<cr>
+"Switch to the file and load it into the window on the right 
+nmap <silent> <Leader>ol :FSRight<cr>
+"Switch to the file and load it into a new window split on the right 
+nmap <silent> <Leader>oL :FSSplitRight<cr>
+"Switch to the file and load it into the window on the left 
+nmap <silent> <Leader>oh :FSLeft<cr>
+"Switch to the file and load it into a new window split on the left 
+nmap <silent> <Leader>oH :FSSplitLeft<cr>
 
 
 
