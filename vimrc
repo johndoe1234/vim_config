@@ -126,8 +126,8 @@ set sidescrolloff=8
 set history=500
 
 
-
-
+"fugitive mappings
+nnoremap <silent> <leader>gs :Gstatus<CR> "getting status
 
 
 
