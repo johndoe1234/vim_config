@@ -13,9 +13,15 @@ if has("syntax")
 endif
 
 " Source the vimrc file after saving it
+"regenerate ctags for project that file has been saved
 if has("autocmd")
   autocmd! bufwritepost vimrc source $MYVIMRC
   autocmd! bufwritepost .vimrc source $MYVIMRC
+  autocmd! bufwritepost *.cpp silent! execute '!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++'
+  autocmd! bufwritepost *.cxx silent! execute '!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++'
+  autocmd! bufwritepost *.c silent! execute '!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++'
+  autocmd! bufwritepost *.h silent! execute '!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++'
+  autocmd! bufwritepost *.hh silent! execute '!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++'
 endif
 
 "move undofiles to some master trash dir
