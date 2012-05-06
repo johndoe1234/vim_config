@@ -22,6 +22,7 @@ if has("autocmd")
   autocmd! bufwritepost *.c silent! execute '!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++'
   autocmd! bufwritepost *.h silent! execute '!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++'
   autocmd! bufwritepost *.hh silent! execute '!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++'
+  "autocmd! FileType c,cpp nested :TagbarOpen
 endif
 
 "move undofiles to some master trash dir
@@ -51,7 +52,7 @@ set autoindent
 set showmode
 set hidden             " Hide buffers when they are abandoned
 set wildmenu
-set wildmode=list:longest
+set wildmode=list:longest,full
 set visualbell
 set cursorline
 set ttyfast
@@ -108,7 +109,7 @@ au FocusLost * :wa
 
 
 "exiting insert mode with jj
-inoremap jj <ESC>
+inoremap jj <ESC>l
 
 "create new vertical split window and move to it
 nnoremap <leader>w <C-w>v<C-w>l
@@ -153,6 +154,17 @@ nmap <silent> <Leader>oL :FSSplitRight<cr>
 nmap <silent> <Leader>oh :FSLeft<cr>
 "Switch to the file and load it into a new window split on the left 
 nmap <silent> <Leader>oH :FSSplitLeft<cr>
+
+"setings for tagbar
+let g:tagbar_left=1
+nnoremap <silent> <F9> :TagbarToggle<CR>
+
+
+"UltiSnips setup
+let g:UltiSnipsUsePythonVersion = 2
+let g:UltiSnipsEditSplit='vertical'
+
+set tags +=~/.vim/tags/qt4
 
 
 

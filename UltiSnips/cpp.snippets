@@ -1,0 +1,80 @@
+snippet qcl "qtclass .. (class)"
+$/*!\class $1
+ *  ${7:Brief description of the class $1}
+ *  ${8:More detailed desription}
+ */
+class ${1:`!p snip.rv = snip.basename or "name"`} : public ${2:QObject}
+{
+    Q_OBJECT
+public:
+	${1/(\w+).*/$1/} (${3:arguments});
+	virtual ~${1/(\w+).*/$1/} ();
+public slots:
+	${4:/* slots */}
+
+private slots:
+	${5:/* slots */}
+
+signals:
+	${6:/* signals */}
+
+private:
+	${0:/* data */}
+};
+endsnippet
+
+snippet met "class method (class method)"
+//! ${4:Brief description of the method $2}
+/*!
+ *  ${5:More detailed desription}
+ */
+${1:void} ${2:methodName}(${3:attributes});${0}
+endsnippet
+
+snippet mem "class member (class member)"
+//! ${3:Brief description of the member $2}
+/*!
+ *  ${4:More detailed desription}
+ */
+${1:int} ${2:memberName};${0}
+endsnippet
+
+snippet par "parameter descriptionf for doxygen (\param)"
+\param ${1:parameterName} ${2:description of paramet}${0}
+endsnippet
+
+snippet sa "see also for doxygen (\sa)"
+\sa ${1:methodOrParameterName}${0}
+endsnippet
+
+
+snippet con "connect method call(connect)"
+connect(${1:sender}, SIGNAL(${2:someSignal}), ${3:receiver}, SLOT(${4:someSlot}));${0}
+endsnippet
+
+
+snippet ife "if .. else (ife)"
+if (${1:/* condition */})
+{
+	${2:/* code */}
+}
+else
+{
+    ${0:/*code*/}
+}
+endsnippet
+
+snippet eif "else if(eif)"
+else if (${1:/* condition */})
+{
+	${2:/* code */}
+}
+endsnippet
+
+
+snippet el "else(el)"
+else
+{
+	${1:/* code */}
+}
+endsnippet
