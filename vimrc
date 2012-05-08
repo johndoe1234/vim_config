@@ -166,5 +166,7 @@ let g:UltiSnipsEditSplit='vertical'
 
 set tags +=~/.vim/tags/qt4
 
+"nmap <Leader>qc execute "qmake"
 
-
+"open quickfix window on error.
+let g:clang_complete_copen=1
