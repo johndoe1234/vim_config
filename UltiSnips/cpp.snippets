@@ -72,9 +72,17 @@ else if (${1:/* condition */})
 endsnippet
 
 
-snippet el "else(el)"
-else
+snippet el "elseif(eif)"
+else if (${1:/* condition */})
 {
-	${1:/* code */}
+	${2:/* code */}
 }
+endsnippet
+
+
+snippet while "while loop (while)"
+while(${1:/* condition */}) 
+{
+	${0:/* code */}
+}; 
 endsnippet

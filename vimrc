@@ -22,6 +22,11 @@ if has("autocmd")
   autocmd! bufwritepost *.c silent! execute '!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++'
   autocmd! bufwritepost *.h silent! execute '!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++'
   autocmd! bufwritepost *.hh silent! execute '!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++'
+  autocmd! bufwritepost *.cpp silent! execute '!cscope -b'
+  autocmd! bufwritepost *.cxx silent! execute '!cscope -b'
+  autocmd! bufwritepost *.c silent! execute '!cscope -b'
+  autocmd! bufwritepost *.h silent! execute '!cscope -b'
+  autocmd! bufwritepost *.hh silent! execute '!cscope -b'
   "autocmd! FileType c,cpp nested :TagbarOpen
 endif
 
@@ -77,7 +82,7 @@ nnoremap <leader>/ :noh<cr>
 set wrap
 set textwidth=79
 set formatoptions=qrn1
-set colorcolumn=85
+"set colorcolumn=85
 
 
 set list
@@ -134,7 +139,7 @@ set history=500
 
 
 "fugitive mappings
-nnoremap <silent> <leader>gs :Gstatus<CR> "getting status
+"nnoremap <silent> <leader>gs :Gstatus<CR> "getting status
 
 "FSwitch definitions and mappings
 augroup mycppfiles
@@ -166,7 +171,19 @@ let g:UltiSnipsEditSplit='vertical'
 
 set tags +=~/.vim/tags/qt4
 
-"nmap <Leader>qc execute "qmake"
 
 "open quickfix window on error.
 let g:clang_complete_copen=1
+
+"if we want qfix window after make
+"command! -nargs=* Make make <args> | cwindow 9
+command! -nargs=* Make make <args> 
+nmap <Leader>mq :!qmake<CR><CR>
+nmap <Leader>mm :Make<CR><CR>
+nmap <Leader>mf :cwindow 9<CR>
+set foldmethod=syntax
+
+
+"powerline
+set t_Co=256
+set nofoldenable  
