@@ -4,9 +4,7 @@ if !exists("g:loaded_pathogen")
     call pathogen#helptags()
     endif
 
-if &t_Co >= 256 || has("gui_running")
-   colorscheme molokai
-endif
+colorscheme molokai
 
 if has("syntax")
   syntax on
@@ -28,6 +26,11 @@ if has("autocmd")
   autocmd! bufwritepost *.h silent! execute '!cscope -b'
   autocmd! bufwritepost *.hh silent! execute '!cscope -b'
   "autocmd! FileType c,cpp nested :TagbarOpen
+  autocmd! FileType c,cpp set tags +=~/.vim/tags/qt4
+  autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
+  autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading=1
+  autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global=1
+  autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 endif
 
 "move undofiles to some master trash dir
@@ -169,7 +172,7 @@ nnoremap <silent> <F9> :TagbarToggle<CR>
 let g:UltiSnipsUsePythonVersion = 2
 let g:UltiSnipsEditSplit='vertical'
 
-set tags +=~/.vim/tags/qt4
+"set tags +=~/.vim/tags/qt4
 
 
 "open quickfix window on error.
@@ -187,3 +190,7 @@ set foldmethod=syntax
 "powerline
 set t_Co=256
 set nofoldenable  
+
+"for rebuilding clang includes, maybe put itas a mapping someday
+"make CC='~/.vim/bundle/clang_" omnicompletion : wordscomplete/bin/cc_args.py gcc' CXX='~/.vim/bundle/clang_complete/bin/cc_args.py g++' -B
+
